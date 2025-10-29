@@ -1,0 +1,13 @@
+#!/bin/bash
+
+while read username
+do
+
+if id "$username" &>/dev/null;
+then
+        echo "User $username already exists."
+else
+         useradd -m -k /etc/skel "$username" 2>/dev/null
+         echo "User $username created."
+fi
+done < users.csv

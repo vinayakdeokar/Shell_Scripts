@@ -1,0 +1,6 @@
+#!/bin/bash
+
+LOCAL_DIR="/mnt/vinayak_old/home/vdeokar/remote_dir_test"
+REMOTE_USER="vinayakdeokar"
+REMOTE_HOST="10.180.111.141"
+rsync -avz "$LOCAL_DIR" "$REMOTE_USER@$REMOTE_HOST:$REMOTE_DIR"

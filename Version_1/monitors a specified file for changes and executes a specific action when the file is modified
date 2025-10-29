@@ -1,0 +1,21 @@
+#!/bin/bash
+read -p "Enter file path: " FILE
+
+if [ ! -f "$FILE" ];
+then
+    echo "File does not exist!"
+    exit 1
+fi
+
+OLD=$(stat -c %Y "$FILE")
+
+while true; do
+    NEW=$(stat -c %Y "$FILE")
+
+    if [ "$NEW" != "$OLD" ]; then
+        echo "$FILE was modified!"
+        OLD=$NEW
+    fi
+
+    sleep 2
+done
