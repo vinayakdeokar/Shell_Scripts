@@ -9,10 +9,11 @@
 #!/bin/bash
 LOCATION=$1
 
-if [ $# -ne 1 ]; then
+if [ $# -ne 1 ] || [ -z "$LOCATION" ]; then
     echo "Usage: $0 <location>"
     exit 1
+else
+    echo "Fetching weather for $LOCATION..."
+    curl -s "https://wttr.in/$LOCATION?format=3"
 fi
 
-echo "Fetching weather for $LOCATION..."
-curl -s "https://wttr.in/$LOCATION?format=3"

@@ -43,5 +43,5 @@ else
         echo "Report sent successfully to $EMAIL"
     else
         echo "Failed to send report. Check sendmail configuration."
-    fi
+   fi
 fi
